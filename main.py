@@ -43,6 +43,17 @@ mbti_career = {
     "ENTJ": ["🚀 기업 CEO", "📊 전략기획가", "📣 브랜드 매니저"]
 }
 
+# 📘 MBTI별 과고 진학 관련 상담 메시지
+science_high_message = {
+    "INTJ": "🔍 깊이 있는 사고와 목표 지향적인 성향 덕분에 과학고 진학에 유리해요. 수학과 과학에 대한 탐구를 지속하세요!",
+    "INTP": "🧪 논리적 사고와 문제 해결 능력이 뛰어나 과학고에서의 연구 활동에 적합해요. 프로젝트형 학습에 익숙해지는 것도 좋아요.",
+    "INFJ": "📚 학문적인 열정과 몰입 능력 덕분에 과학 분야에서도 깊이 있는 성장을 할 수 있어요. 자신의 관심 분야를 조기에 탐색해 보세요.",
+    "ISTJ": "📘 성실하고 체계적인 학습 태도는 과학고 학업에 큰 도움이 됩니다. 꾸준한 준비가 관건이에요!",
+    "ISTP": "🔧 실험과 실습을 좋아하는 당신! 과학고에서 실용적인 과학 탐구 활동을 즐길 수 있어요.",
+    "ENTP": "🧩 창의적 문제 해결력은 융합과학 분야에서 빛을 발합니다. 다양한 분야에 호기심을 가져보세요!",
+    "ENTJ": "🚀 도전적이고 목표 지향적인 성격으로 과학고에서도 리더 역할을 할 수 있어요. 수학적 사고력 향상에 집중해 보세요."
+}
+
 # ✅ 사용자 선택
 selected_mbti = st.selectbox("당신의 MBTI를 선택하세요 ✨", mbti_types)
 
@@ -55,6 +66,11 @@ st.subheader(f"{selected_mbti_emoji} {selected_mbti} 유형에게 어울리는 �
 
 for job in mbti_career[selected_mbti]:
     st.markdown(f"- {job}")
+
+# 📘 과고 진학 관련 조언
+if selected_mbti in science_high_message:
+    st.markdown("🧑‍🔬 **과학고 진학을 꿈꾼다면?**")
+    st.info(science_high_message[selected_mbti])
 
 # 💌 하단 메시지
 st.markdown("---")
