@@ -15,10 +15,15 @@ mbti_types = [
     "ESTJ", "ESFJ", "ENFJ", "ENTJ"
 ]
 
-# ✅ 사용자 선택
-user_mbti = st.selectbox("당신의 MBTI를 선택하세요 ✨", mbti_types)
+# 🧠 MBTI 이모지 사전
+mbti_emojis = {
+    "ISTJ": "📘", "ISFJ": "🧺", "INFJ": "🔮", "INTJ": "📊",
+    "ISTP": "🛠️", "ISFP": "🎨", "INFP": "📖", "INTP": "🧪",
+    "ESTP": "🎤", "ESFP": "🎉", "ENFP": "🌍", "ENTP": "🧩",
+    "ESTJ": "📈", "ESFJ": "👩‍👧‍👦", "ENFJ": "🗣️", "ENTJ": "🚀"
+}
 
-# 💡 MBTI별 직업 추천 사전
+# 💼 MBTI별 직업 추천 사전
 mbti_career = {
     "ISTJ": ["🧾 회계사", "🏛️ 공무원", "🛠️ 기술자"],
     "ISFJ": ["👩‍⚕️ 간호사", "🏫 교사", "🧑‍🍳 요리사"],
@@ -38,12 +43,19 @@ mbti_career = {
     "ENTJ": ["🚀 기업 CEO", "📊 전략기획가", "📣 브랜드 매니저"]
 }
 
-# 🚀 추천 결과
-if user_mbti:
-    st.subheader(f"🧭 {user_mbti} 유형에게 어울리는 직업은?")
-    for job in mbti_career[user_mbti]:
-        st.markdown(f"- {job}")
+# ✅ 사용자 선택
+selected_mbti = st.selectbox("당신의 MBTI를 선택하세요 ✨", mbti_types)
 
-# 🌟 하단 메시지
+# 📌 선택한 MBTI에 맞는 이모지 가져오기
+selected_mbti_emoji = mbti_emojis[selected_mbti]
+
+# 🚀 추천 결과
+st.markdown("---")
+st.subheader(f"{selected_mbti_emoji} {selected_mbti} 유형에게 어울리는 직업은...?")
+
+for job in mbti_career[selected_mbti]:
+    st.markdown(f"- {job}")
+
+# 💌 하단 메시지
 st.markdown("---")
 st.markdown("👩‍🎓 **모든 유형이 소중해요!** 자신의 성격을 이해하고, 다양한 진로를 탐색해보세요 😊")
