@@ -76,3 +76,4 @@ if selected_mbti in science_high_message:
 st.markdown("---")
 st.markdown("👩‍🎓 **모든 유형이 소중해요!** 자신의 성격을 이해하고, 다양한 진로를 탐색해보세요 😊")
 st.balloons()
+st.snow()
